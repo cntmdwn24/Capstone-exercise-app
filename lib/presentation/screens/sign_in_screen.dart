@@ -1,9 +1,17 @@
 import 'package:capstone/common/colors.dart';
-import 'package:capstone/presentation/screens/main_screen.dart';
+import 'package:capstone/data/repositories/auth_repository.dart';
+import 'package:capstone/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  AuthRepository authRepository = AuthRepository();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +34,7 @@ class SignInScreen extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               },
               child: Container(
@@ -73,7 +81,7 @@ class SignInScreen extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               },
               child: Container(
@@ -113,10 +121,7 @@ class SignInScreen extends StatelessWidget {
             SizedBox(height: 10),
             GestureDetector(
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => MainScreen()),
-                );
+                authRepository.setName(context);
               },
               child: Container(
                 width: 350,
