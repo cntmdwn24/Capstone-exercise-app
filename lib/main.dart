@@ -1,4 +1,4 @@
-import 'package:capstone/presentation/screens/splash_screen.dart';
+import 'package:capstone/presentation/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
-      debugShowCheckedModeBanner: false,
+        home: SignInScreen(),
+        debugShowCheckedModeBanner: false
     );
   }
 }
